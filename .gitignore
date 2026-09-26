@@ -480,3 +480,9 @@ $RECYCLE.BIN/
 
 # Vim temporary swap files
 *.swp
+
+# Website dependencies, builds and local deployment tools
+node_modules/
+.sites-runtime/
+qa/
+dist/

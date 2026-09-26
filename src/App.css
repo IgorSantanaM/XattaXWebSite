@@ -1895,3 +1895,16 @@ svg {
         font-size: 12px
     }
 }
+/* Official logo: faithful vector contours from the user-supplied artwork. */
+.brand{display:inline-flex;align-items:center;flex-shrink:0;line-height:0;letter-spacing:0}
+.brand img{display:block;width:132px;height:88px;object-fit:contain}
+.header{height:116px}
+html{scroll-padding-top:132px}
+.footer .brand img{width:174px;height:116px}
+.about-origin{gap:25px;align-items:center}
+.about-origin img{width:162px;height:108px;object-fit:contain;border-radius:0}
+.about-origin>span{font-size:14px}
+.plane-logo{width:160px;height:98px;object-fit:contain;display:block}
+@media(max-width:900px){.header-inner{gap:18px}.header-contact{gap:12px;font-size:13px;padding-inline:12px}.nav{gap:20px}.nav a{font-size:13px}.about-origin{flex-wrap:wrap;gap:16px}}
+@media(max-width:760px){.header{height:96px}.brand img{width:114px;height:76px}.nav{top:95px}.nav a{font-size:16px}.footer .brand img{width:144px;height:96px}.about-origin{flex-wrap:nowrap}.about-origin img{width:140px;height:94px}.about-origin>span{font-size:14px}.about-origin small{font-size:12px}html{scroll-padding-top:112px}}
+@media(max-width:360px){.about-origin{gap:15px}.about-origin img{width:128px;height:86px}.about-origin>span{max-width:125px}}
