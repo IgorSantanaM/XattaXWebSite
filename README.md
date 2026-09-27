@@ -15,7 +15,7 @@ npm run lint
 npm run build
 ```
 
-React, TypeScript e Vite, com ícones Lucide. O conteúdo de serviços e os contatos ficam em `src/content.ts`; as páginas institucionais ficam em `src/App.tsx`. O WhatsApp foi informado pelo responsável pelo projeto: +55 67 933825699.
+React, TypeScript e Vite, com ícones Lucide. O conteúdo de serviços e os contatos ficam em `src/content.ts`; as páginas institucionais ficam em `src/App.tsx`. O WhatsApp foi informado pelo responsável pelo projeto: +55 67 33825699.
 
 ## Estrutura institucional
 

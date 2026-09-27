@@ -1,5 +1,5 @@
 export const contact = {
-  whatsappNumber: '5567933825699',
+  whatsappNumber: '556733825699',
   email: 'xattax.2022@gmail.com',
   instagram: 'https://www.instagram.com/_xattax/',
   address: 'Rua Pindaíba, 244 · Campo Grande, MS',
