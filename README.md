@@ -15,11 +15,19 @@ npm run lint
 npm run build
 ```
 
-React, TypeScript e Vite, com animações Motion e ícones Lucide. O conteúdo e os contatos ficam em `src/content.ts`. O WhatsApp foi informado pelo responsável pelo projeto: +55 67 933825699.
+React, TypeScript e Vite, com ícones Lucide. O conteúdo de serviços e os contatos ficam em `src/content.ts`; as páginas institucionais ficam em `src/App.tsx`. O WhatsApp foi informado pelo responsável pelo projeto: +55 67 933825699.
+
+## Estrutura institucional
+
+Páginas: início, sobre nós, serviços, abrir empresa, trocar de contador, contato e privacidade. `src/page-meta.json` centraliza títulos, descrições e caminhos. O comando de build executa `scripts/build-pages.mjs` para criar um HTML de entrada por página, permitindo acessar e atualizar URLs internas diretamente no GitHub Pages. Cada página tem canonical e metadados próprios.
+
+A referência de organização foi o modelo M2404 do Sitecontabil, com textos próprios para a XattaX. A página de abertura de empresa inclui um link para orientações gerais da Redesim. Não há promessa de prazo, economia tributária ou contratação automática.
 
 ## Identidade visual
 
-A logo enviada pelo responsável foi vetorizada por contornos, preservando o símbolo e as letras da imagem original. Os SVGs em `public/brand/` incluem versões escura, clara e uma aplicação sem a assinatura inferior para a composição decorativa. O favicon usa o símbolo do telhado.
+A logo enviada pelo responsável foi vetorizada por contornos, preservando o símbolo e as letras da imagem original. Os SVGs em `public/brand/` incluem versões escura e clara. O favicon usa o símbolo do telhado. A antiga composição interativa foi removida.
+
+A imagem `public/images/contabilidade.jpg` é uma imagem ilustrativa gerada para o site: representa uma situação genérica de trabalho contábil, e não uma fotografia do escritório ou da equipe da XattaX.
 
 A referência está em `design/xattax-reference.jpg`. Para regenerar os vetores, execute `python scripts/vectorize-logo.py` com Pillow instalado.
 

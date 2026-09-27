@@ -3,13 +3,13 @@
 :root {
     font-family: 'DM Sans', sans-serif;
     color: #172434;
-    background: #eee;
+    background: #fff;
     font-synthesis: none;
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     --blue: #033679;
     --ink: #172434;
-    --paper: #eee;
+    --paper: #fff;
     --muted: #5d6875;
     --line: #cfd4db
 }
@@ -20,12 +20,12 @@
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 100px
+    scroll-padding-top: 120px
 }
 
 body {
     margin: 0;
-    min-width: 320px
+    min-width: 0
 }
 
 a {
