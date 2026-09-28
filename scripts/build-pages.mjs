@@ -3,7 +3,7 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 // Materialize each route for GitHub Pages, including direct links and refreshes.
 const pages = JSON.parse(await readFile(new URL('../src/page-meta.json', import.meta.url), 'utf8'))
 const template = await readFile(new URL('../dist/index.html', import.meta.url), 'utf8')
-const site = 'https://igorsantanam.github.io/XattaXWebSite/'
+const site = `${(process.env.SITE_URL || 'https://igorsantanam.github.io/XattaXWebSite/').replace(/\/+$/, '')}/`
 const escape = value => value.replaceAll('&', '&amp;').replaceAll('"', '&quot;').replaceAll('<', '&lt;')
 for (const page of pages) {
   const url = site + (page.path ? `${page.path}/` : '')
