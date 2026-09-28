@@ -33,6 +33,14 @@ A referência está em `design/xattax-reference.jpg`. Para regenerar os vetores,
 
 ## Publicação
 
+### Docker
+
+Na raiz do projeto, execute `docker compose up --build -d` e acesse http://localhost:32350/.
+As páginas internas também podem ser abertas diretamente. Para parar, execute `docker compose down`.
+Se o site for publicado em outro domínio, defina `SITE_URL` antes do build para gerar os links canônicos e metadados sociais com a URL pública correta (incluindo o protocolo).
+
+### GitHub Pages
+
 O workflow `.github/workflows/deploy.yml` gera e publica o site no GitHub Pages a cada atualização da branch `main`. Nas configurações do repositório, Pages usa GitHub Actions. A configuração de Pages determina automaticamente o caminho público dos arquivos.
 
 `dist/` é gerado durante a publicação e não precisa ser versionado. Para reproduzir a versão de produção localmente no PowerShell:

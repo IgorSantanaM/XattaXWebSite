@@ -1,0 +1,8 @@
+node_modules
+dist
+qa
+.git
+.github
+.env
+.env.*
+*.log
