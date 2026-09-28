@@ -54,8 +54,8 @@ def svg(filename, viewbox, color, selected, title, background=''):
     (root / filename).write_text(result,encoding='utf-8')
 
 box='20 32 588 392'
-svg('public/brand/xattax-logo.svg',box,'#172434',contours,'XattaX — Escritório de apoio imobiliário e contábil')
-svg('public/brand/xattax-logo-light.svg',box,'#EEEEEE',contours,'XattaX — Escritório de apoio imobiliário e contábil')
+svg('public/brand/xattax-logo.svg',box,'#172434',contours,'XattaX — Escritório contábil')
+svg('public/brand/xattax-logo-light.svg',box,'#EEEEEE',contours,'XattaX — Escritório contábil')
 mark=[c for c in contours if max(y for _,y in c)<395]
 svg('public/brand/xattax-mark-light.svg','20 32 588 360','#EEEEEE',mark,'XattaX')
 # The favicon isolates the original roof symbol so it remains legible at 16 px.

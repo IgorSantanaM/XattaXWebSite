@@ -1,6 +1,6 @@
 # XattaXWebSite
 
-Site institucional da XattaX, escritório de apoio imobiliário e contábil em Campo Grande, MS.
+Site institucional da XattaX, escritório contábil em Campo Grande, MS. CRC MS-002250/O.
 
 Site: https://igorsantanam.github.io/XattaXWebSite/
 
