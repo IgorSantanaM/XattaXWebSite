@@ -8,8 +8,10 @@ import pageMeta from './page-meta.json'
 import './App.css'
 
 const base = import.meta.env.BASE_URL
-const relativePath = window.location.pathname.startsWith(base) ? window.location.pathname.slice(base.length) : window.location.pathname.slice(1)
-const page = relativePath.replace(/(^\/|\/$|index\.html$)/g, '').replace(/\/$/, '')
+const getPage = (pathname: string) => {
+  const relativePath = pathname.startsWith(base) ? pathname.slice(base.length) : pathname.slice(1)
+  return relativePath.replace(/(^\/|\/$|index\.html$)/g, '').replace(/\/$/, '')
+}
 const href = (path = '') => assetUrl(path ? `${path}/` : '')
 const navigation = [['', 'Início'], ['sobre-nos', 'Sobre nós'], ['servicos', 'Serviços'], ['abrir-empresa', 'Abrir empresa'], ['trocar-de-contador', 'Trocar de contador'], ['contato', 'Contato']]
 const generalMessage = 'Olá, XattaX! Gostaria de conversar sobre o atendimento contábil.'
@@ -21,7 +23,7 @@ function Brand({ light = false }: { light?: boolean }) {
 function WhatsApp({ children = 'Fale com a XattaX', message = generalMessage, className = 'button primary' }: { children?: ReactNode, message?: string, className?: string }) {
   return <a className={className} href={contactUrl(message)} target="_blank" rel="noopener noreferrer">{children}<ArrowUpRight size={18} aria-hidden="true" /></a>
 }
-function Header() {
+function Header({ page }: { page: string }) {
   const [open, setOpen] = useState(false)
   const trigger = useRef<HTMLButtonElement>(null)
   useEffect(() => {
@@ -98,13 +100,14 @@ function BusinessPage({ opening }: { opening: boolean }) {
   ]} /></div></section><Callout title={opening ? 'Vamos conversar sobre o seu projeto?' : 'Conte com uma conversa clara para decidir.'} message={message} /></>
 }
 function Privacy() {
-  return <><PageHeading eyebrow="Privacidade" title="Informações sobre privacidade." description="Saiba como os recursos deste site funcionam." /><article className="wrap section article-body privacy-content"><h2>Contato e informações pessoais</h2><p>Este site não recebe documentos nem solicita dados financeiros. A seleção de assunto na área de contato é usada apenas para preparar uma mensagem e não é armazenada depois que a página é fechada.</p><h2>WhatsApp, e-mail e serviços externos</h2><p>Ao continuar no WhatsApp, o texto é aberto no serviço para sua revisão. A mensagem só é enviada por você. Os links de e-mail abrem seu aplicativo de e-mail. WhatsApp, Instagram e Google Maps possuem suas próprias políticas de privacidade.</p><h2>Hospedagem e fontes</h2><p>O site é hospedado no GitHub Pages e carrega fontes do Google Fonts. Esses serviços podem tratar dados técnicos, como endereço IP, necessários ao funcionamento. Não adicionamos ferramentas de publicidade ou análise de visitantes.</p><h2>Fale com a XattaX</h2><p>Para esclarecer o tratamento de informações compartilhadas durante o atendimento, escreva para <a href={`mailto:${contact.email}`}>{contact.email}</a>.</p></article></>
+  return <><PageHeading eyebrow="Privacidade" title="Informações sobre privacidade." description="Saiba como os recursos deste site funcionam." /><article className="wrap section article-body privacy-content"><h2>Contato e informações pessoais</h2><p>Este site não recebe documentos nem solicita dados financeiros. A seleção de assunto na área de contato é usada apenas para preparar uma mensagem e não é armazenada depois que a página é fechada.</p><h2>WhatsApp, e-mail e serviços externos</h2><p>Ao continuar no WhatsApp, o texto é aberto no serviço para sua revisão. A mensagem só é enviada por você. Os links de e-mail abrem seu aplicativo de e-mail. WhatsApp, Instagram e Google Maps possuem suas próprias políticas de privacidade.</p><h2>Hospedagem e fontes</h2><p>O site é servido no domínio xattax.cloudlane.com.br e carrega fontes do Google Fonts. Esses serviços podem tratar dados técnicos, como endereço IP, necessários ao funcionamento. Não adicionamos ferramentas de publicidade ou análise de visitantes.</p><h2>Fale com a XattaX</h2><p>Para esclarecer o tratamento de informações compartilhadas durante o atendimento, escreva para <a href={`mailto:${contact.email}`}>{contact.email}</a>.</p></article></>
 }
-function App() {
+function App({ pathname = window.location.pathname }: { pathname?: string }) {
+  const page = getPage(pathname)
   useEffect(() => {
     const meta = pageMeta.find(item => item.path === page)
     if (meta) { document.title = meta.title; document.querySelector('meta[name="description"]')?.setAttribute('content', meta.description) }
-  }, [])
+  }, [page])
   let content: ReactNode
   switch (page) {
     case '': content = <Home />; break
@@ -116,6 +119,6 @@ function App() {
     case 'privacidade': content = <Privacy />; break
     default: content = <section className="section wrap not-found"><h1>Página não encontrada.</h1><p>O endereço pode ter mudado. Encontre o que precisa na página inicial.</p><a className="button primary" href={href()}>Voltar ao início <ArrowRight size={18} /></a></section>
   }
-  return <><a className="skip" href="#conteudo">Pular para o conteúdo</a><Header /><main id="conteudo" tabIndex={-1}>{content}</main><Footer /><a className="floating" href={contactUrl(generalMessage)} target="_blank" rel="noopener noreferrer" aria-label="Conversar com a XattaX no WhatsApp"><MessageCircle size={25} /></a></>
+  return <><a className="skip" href="#conteudo">Pular para o conteúdo</a><Header page={page} /><main id="conteudo" tabIndex={-1}>{content}</main><Footer /><a className="floating" href={contactUrl(generalMessage)} target="_blank" rel="noopener noreferrer" aria-label="Conversar com a XattaX no WhatsApp"><MessageCircle size={25} /></a></>
 }
 export default App

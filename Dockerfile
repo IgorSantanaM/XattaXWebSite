@@ -5,7 +5,7 @@ COPY package.json package-lock.json ./
 RUN npm ci
 
 COPY . .
-ARG SITE_URL=http://localhost:32350/
+ARG SITE_URL=https://xattax.cloudlane.com.br/
 RUN SITE_URL="$SITE_URL" npm run build
 
 FROM nginx:stable-alpine
