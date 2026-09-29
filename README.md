@@ -2,7 +2,7 @@
 
 Site institucional da XattaX, escritório contábil em Campo Grande, MS. CRC MS-002250/O.
 
-Site: https://igorsantanam.github.io/XattaXWebSite/
+Site: https://xattax.cloudlane.com.br/
 
 ## Desenvolvimento
 
@@ -19,7 +19,7 @@ React, TypeScript e Vite, com ícones Lucide. O conteúdo de serviços e os cont
 
 ## Estrutura institucional
 
-Páginas: início, sobre nós, serviços, abrir empresa, trocar de contador, contato e privacidade. `src/page-meta.json` centraliza títulos, descrições e caminhos. O comando de build executa `scripts/build-pages.mjs` para criar um HTML de entrada por página, permitindo acessar e atualizar URLs internas diretamente no GitHub Pages. Cada página tem canonical e metadados próprios.
+Páginas: início, sobre nós, serviços, abrir empresa, trocar de contador, contato e privacidade. `src/page-meta.json` centraliza títulos, descrições e caminhos. O build gera o conteúdo HTML de cada página, seus metadados, `robots.txt` e `sitemap.xml`. As URLs canônicas apontam para `xattax.cloudlane.com.br`, inclusive na cópia do GitHub Pages.
 
 A referência de organização foi o modelo M2404 do Sitecontabil, com textos próprios para a XattaX. A página de abertura de empresa inclui um link para orientações gerais da Redesim. Não há promessa de prazo, economia tributária ou contratação automática.
 
@@ -37,7 +37,11 @@ A referência está em `design/xattax-reference.jpg`. Para regenerar os vetores,
 
 Na raiz do projeto, execute `docker compose up --build -d` e acesse http://localhost:32350/.
 As páginas internas também podem ser abertas diretamente. Para parar, execute `docker compose down`.
-Se o site for publicado em outro domínio, defina `SITE_URL` antes do build para gerar os links canônicos e metadados sociais com a URL pública correta (incluindo o protocolo).
+O build usa `https://xattax.cloudlane.com.br/` como URL pública para os links canônicos, dados estruturados e sitemap. Para outra implantação, defina `SITE_URL` antes do build.
+
+### Busca Google
+
+O sitemap público fica em https://xattax.cloudlane.com.br/sitemap.xml. Após publicar, verifique o domínio no [Google Search Console](https://search.google.com/search-console/about) e envie esse sitemap; use a inspeção de URL para conferir a página inicial e as páginas de serviços. Mantenha o [Perfil da Empresa no Google](https://www.google.com/business/) com o mesmo nome, endereço, telefone, site e serviços divulgados aqui. A verificação do domínio e do perfil depende do proprietário das contas.
 
 ### GitHub Pages
 

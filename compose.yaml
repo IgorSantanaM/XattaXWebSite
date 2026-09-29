@@ -3,7 +3,7 @@ services:
     build:
       context: .
       args:
-        SITE_URL: ${SITE_URL:-http://localhost:32350/}
+        SITE_URL: ${SITE_URL:-https://xattax.cloudlane.com.br/}
     ports:
       - "32350:80"
     restart: unless-stopped
